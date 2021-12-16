@@ -18,8 +18,7 @@
     "esModuleInterop": true,
     "moduleResolution": "Node",
 
-    "lib": ["ESNext"],
-    "module": "ESNext",
+    "module": "CommonJS",
     "target": "ESNext",
 
     "declaration": true,
