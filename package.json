@@ -1,6 +1,9 @@
 {
   "name": "@suzulabo/ttscripts",
   "version": "0.0.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
