@@ -1,3 +1,4 @@
+import { printer } from './printer';
 import { sh } from './sh';
 
 type ScriptFunction = (args?: string[]) => Promise<unknown> | void;
@@ -33,15 +34,13 @@ export type ScriptEntries = [string, Script | ParallelRun | SequentialRun][];
 
 const execScript = async (script: Script, args?: string[]) => {
   if (script instanceof Command) {
-    console.info(`> ${script.cmd} ${args?.join(' ')}`);
-    console.info();
+    printer().runCommand(script.cmd, args);
     await script.exec(args);
     return;
   }
 
   if (typeof script == 'function') {
-    console.info(`> ${script.name}`);
-    console.info();
+    printer().runFunction(script.name);
     await script(args);
     return;
   }
@@ -58,14 +57,13 @@ export const runScript = async (entries: ScriptEntries, name: string, args: stri
     } else {
       const s = scriptMap.get(k);
       if (!s) {
-        throw `invalid name: ${k}`;
+        printer().taskNotFound(k);
+        return;
       }
 
-      console.info(`> ${k}`);
+      printer().runScript(k);
 
       if (s instanceof ParallelRun) {
-        console.info();
-
         await Promise.all(
           s.scripts.map(v => {
             return run(v);
@@ -74,8 +72,6 @@ export const runScript = async (entries: ScriptEntries, name: string, args: stri
         return;
       }
       if (s instanceof SequentialRun) {
-        console.info();
-
         for (const v of s.scripts) {
           await run(v);
         }
@@ -91,13 +87,12 @@ export const runScript = async (entries: ScriptEntries, name: string, args: stri
 
 export const main = async (entries: ScriptEntries, name?: string, args?: string[]) => {
   if (!name) {
-    const scripts = entries.map(v => v[0]);
-    scripts.sort();
-    console.log(scripts.join('\r\n'));
+    const tasks = entries.map(v => v[0]);
+    printer().printUsage(tasks);
     return;
   }
 
-  console.log(`## ${new Date().toLocaleTimeString()} ##`, '\n');
+  printer().start(name, args);
 
   await runScript(entries, name, args || []);
 };
