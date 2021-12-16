@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    // Type Checking
+    "strict": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    // "exactOptionalPropertyTypes": true, # work from Typescript 4.4
+    "noFallthroughCasesInSwitch": true,
+    // "noImplicitOverride": true,  # Unknown compiler option in Stencil
+    "noImplicitReturns": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    // Recommended
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+
+    "module": "CommonJS",
+    "target": "ESNext",
+
+    "declaration": true,
+
+    "sourceMap": true,
+    "isolatedModules": true,
+
+    "resolveJsonModule": true,
+
+    "outDir": "dist"
+  },
+
+  "include": ["src", "test", "scripts/**/*.ts"]
+}
