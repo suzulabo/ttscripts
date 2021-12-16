@@ -1,6 +1,11 @@
 {
   "name": "@suzulabo/ttscripts",
   "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "-": "node -r esbuild-register scripts/index.ts"
   },

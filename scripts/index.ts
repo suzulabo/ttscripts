@@ -3,6 +3,10 @@ import { Cmd, main, ScriptEntries } from '../src';
 const entries: ScriptEntries = [
   // hello
   ['hello', Cmd('echo hello')],
+
+  // build
+  ['build', Cmd('tsc -p tsconfig.build.json')],
+  ['lint', Cmd('eslint src')],
 ];
 
 const name = process.argv[2];
