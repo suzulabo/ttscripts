@@ -1,7 +1,9 @@
 {
   "name": "@suzulabo/ttscripts",
   "version": "0.0.1",
-  "scripts": {},
+  "scripts": {
+    "-": "node -r esbuild-register scripts/index.ts"
+  },
   "devDependencies": {
     "@types/jest": "27.0.3",
     "@types/node": "17.0.0",

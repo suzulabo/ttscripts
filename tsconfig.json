@@ -27,7 +27,9 @@
     "sourceMap": true,
     "isolatedModules": true,
 
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+
+    "outDir": "dist"
   },
 
   "include": ["src", "test", "scripts/**/*.ts"]

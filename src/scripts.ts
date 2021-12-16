@@ -88,3 +88,16 @@ export const runScript = async (entries: ScriptEntries, name: string, args: stri
 
   await run(name);
 };
+
+export const main = async (entries: ScriptEntries, name?: string, args?: string[]) => {
+  if (!name) {
+    const scripts = entries.map(v => v[0]);
+    scripts.sort();
+    console.log(scripts.join('\r\n'));
+    return;
+  }
+
+  console.log(`## ${new Date().toLocaleTimeString()} ##`, '\n');
+
+  await runScript(entries, name, args || []);
+};
