@@ -1,18 +1,18 @@
 # ttscripts
 
-ttscripts is a simple task runner that can be written in TypeScript or JavaScript.
+ttscripts は TypeScript、JavaScript で書けるシンプルなタスクランナーです。
 
-## Install
+## インストール
 
 ```
 npm i -D @suzulabo/ttscripts
 ```
 
-## Usage
+## 使い方
 
-Writing the task content.
+タスク内容をコーディングします。
 
-Example) scripts/index.ts
+（例）scripts/index.ts
 
 ```typescript
 import { Cmd, main, RunP, RunS, ScriptEntries } from '@suzulabo/ttscripts';
@@ -43,7 +43,7 @@ main(entries, name, args).catch(err => {
 });
 ```
 
-You can run it any way, but for example using scripts of package.json
+実行方法は任意ですが、例えば package.json の scripts に以下のように記載します。
 
 ```json
   "scripts": {
@@ -51,15 +51,15 @@ You can run it any way, but for example using scripts of package.json
   },
 ```
 
-then you can run it like this.
+以下のように実行できます。
 
 ```
 npm run - hello
 ```
 
-### JavaScript example
+### JavaScript での例
 
-Example) scripts/index.js
+（例）scripts/index.js
 
 ```javascript
 const { Cmd, main, RunS, RunP } = require('@suzulabo/ttscripts');
@@ -99,6 +99,6 @@ main(entries, name, args).catch(err => {
   },
 ```
 
-### Reference (project actually used)
+### 参考(実際に利用しているプロジェクト)
 
 > [@suzulabo/troom](https://github.com/suzulabo/troom)
