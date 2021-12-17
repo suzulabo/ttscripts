@@ -1,6 +1,22 @@
 {
   "name": "@suzulabo/ttscripts",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "description": "Simple task runner for TypeScript or JavaScript",
+  "homepage": "https://github.com/suzulabo/ttscripts#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suzulabo/ttscripts.git"
+  },
+  "author": "Kenji Suzuki",
+  "keywords": [
+    "task",
+    "scripts",
+    "build",
+    "make",
+    "system",
+    "tool"
+  ],
+  "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
   },
